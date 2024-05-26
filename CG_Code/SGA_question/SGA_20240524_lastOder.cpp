@@ -1,50 +1,52 @@
-#include <Windows.h> // Sleep ¸¦ ¾²±âÀ§ÇØ Ãß°¡ÇÔ
+#include <Windows.h> // Sleep ë¥¼ ì“°ê¸°ìœ„í•´ ì¶”ê°€í•¨
 #include <iostream>
 #include <vector>
 #include <string>
-#include <conio.h> // Å°º¸µå ¹æÇâÅ° ÀÔ·ÂÀ» À§ÇØ Ãß°¡ÇÑ ¶óÀÌºê·¯¸®
+#include <conio.h> // í‚¤ë³´ë“œ ë°©í–¥í‚¤ ì…ë ¥ì„ ìœ„í•´ ì¶”ê°€í•œ ë¼ì´ë¸ŒëŸ¬ë¦¬
 
 using namespace std;
 
-class Singer // °¡¼ö
+class Singer // ê°€ìˆ˜
 {
 public:
-    string name;// °¡¼öÀÌ¸§
-    vector<string> songs; // ³ë·¡
+    string name;// ê°€ìˆ˜ì´ë¦„
+    vector<string> songs; // ë…¸ë˜
 
     Singer(string _name) : name(_name) {}
 };
 
 int main() {
     vector<Singer> singers = { 
-        Singer("Â¯±¸"),
-        Singer("Ã¶¼ö"),
-        Singer("À¯¸®"),
-        Singer("ÈÆÀÌ"),
-        Singer("¸Í±¸") 
+        Singer("ì§±êµ¬"),
+        Singer("ì² ìˆ˜"),
+        Singer("ìœ ë¦¬"),
+        Singer("í›ˆì´"),
+        Singer("ë§¹êµ¬") 
     };
 
-    for (int i = 0; i < 5; ++i) // ÀÏ´Ü ±âº» °¡¼ö/ ³ë·¡ ¼¼ÆÃ
+    for (int i = 0; i < 5; ++i) // ì¼ë‹¨ ê¸°ë³¸ ê°€ìˆ˜/ ë…¸ë˜ ì„¸íŒ…
     {
         for (int j = 0; j < 2; ++j) 
         {
-            singers[i].songs.push_back("¶±ÀÙ¹æ¹ü´ë ÁÖÁ¦°¡ Á¦ " + to_string(j + 1) + " È£");
+            singers[i].songs.push_back("ë–¡ìë°©ë²”ëŒ€ ì£¼ì œê°€ ì œ " + to_string(j + 1) + " í˜¸");
         }
     }
 
-    int mySinger = 0; // °¡¼ö
-    int sings = 0; // ³ë·¡
+    string way = "í˜„ì¬ ì…ë ¥ëœ ë°©í–¥í‚¤ : ì—†ìŒ";
+    int mySinger = 0; // ê°€ìˆ˜
+    int sings = 0; // ë…¸ë˜
     char input;
     while (true) 
     {
-        system("cls"); // È­¸é Áö¿ì±â 
-        cout << "¹æÇâÅ° ÁÂ(¡ç)/¿ì(¡æ) ·Î °¡¼ö¸¦ º¯°æÇÒ¼öÀÖ½À´Ï´Ù" << endl;
-        cout << "¹æÇâÅ° À§(¡è)/¾Æ·¡(¡é)·Î ³ë·¡¸¦ ¼±ÅÃÇÏ½Ç¼öÀÖ½À´Ï´Ù" << endl;
-        cout << "Ãß°¡·Î + Å° ¸¦ ÀÔ·ÂÇÏ½Ã¸é »õ·Î¿î °¡¼ö È¤Àº ³ë·¡¸¦ Ãß°¡ÇÒ¼öÀÖ½À´Ï´Ù." << endl;
-        cout << "È¤Àº ESC Å°¸¦ ´©¸£¸é Á¾·áµË´Ï´Ù." << endl << endl;
+        system("cls"); // í™”ë©´ ì§€ìš°ê¸° 
+        cout << "ë°©í–¥í‚¤ ì¢Œ(â†)/ìš°(â†’) ë¡œ ê°€ìˆ˜ë¥¼ ë³€ê²½í• ìˆ˜ìˆìŠµë‹ˆë‹¤" << endl;
+        cout << "ë°©í–¥í‚¤ ìœ„(â†‘)/ì•„ë˜(â†“)ë¡œ ë…¸ë˜ë¥¼ ì„ íƒí•˜ì‹¤ìˆ˜ìˆìŠµë‹ˆë‹¤" << endl;
+        cout << "ì¶”ê°€ë¡œ + í‚¤ ë¥¼ ì…ë ¥í•˜ì‹œë©´ ìƒˆë¡œìš´ ê°€ìˆ˜ í˜¹ì€ ë…¸ë˜ë¥¼ ì¶”ê°€í• ìˆ˜ìˆìŠµë‹ˆë‹¤." << endl;
+        cout << "í˜¹ì€ ESC í‚¤ë¥¼ ëˆ„ë¥´ë©´ ì¢…ë£Œë©ë‹ˆë‹¤." << endl << endl;
+        cout <<  way << endl;
 
-        cout << "ÇöÀç ¼±ÅÃµÈ °¡¼ö: " << singers[mySinger].name << endl;
-        cout << "=====¼±ÅÃµÈ °¡¼öÀÇ ³ë·¡===== " << endl;
+        cout << "í˜„ì¬ ì„ íƒëœ ê°€ìˆ˜: " << singers[mySinger].name << endl;
+        cout << "=====ì„ íƒëœ ê°€ìˆ˜ì˜ ë…¸ë˜===== " << endl;
         //cout << "" <<  singers[sings].songs;
        /* for (const auto& song : singers[currentSingerIndex].songs)
         {
@@ -56,72 +58,84 @@ int main() {
         }
         else
         {
-            cout << "³ë·¡ ¾øÀ½" << endl;
+            cout << "ë…¸ë˜ ì—†ìŒ" << endl;
         }
 
         //
-        input = _getch(); // Å° ÀÔ·Â ¹Ş±â
+        input = _getch(); // í‚¤ ì…ë ¥ ë°›ê¸°
 
-        // ÀÔ·Â¿¡ µû¶ó µ¿ÀÛ ¼öÇà
-        switch (input) // ÄÉÀÌ½º´Â ÀüºÎ ¾Æ½ºÅ°ÄÚµå·Î ¹æÇâÅ° À§¶ó·¡ escµîÀ» »ç¿ëÇÔ
+        // ì…ë ¥ì— ë”°ë¼ ë™ì‘ ìˆ˜í–‰
+        switch (input) // ì¼€ì´ìŠ¤ëŠ” ì „ë¶€ ì•„ìŠ¤í‚¤ì½”ë“œë¡œ ë°©í–¥í‚¤ ìœ„ë¼ë˜ escë“±ì„ ì‚¬ìš©í•¨
         {
-        case 75: // ¿ŞÂÊ È­»ìÇ¥ Å°(¾Æ½ºÅ°ÄÚµå) // ÁÂ¿ì´Â °¡¼ö
+        case 75: // ì™¼ìª½ í™”ì‚´í‘œ í‚¤(ì•„ìŠ¤í‚¤ì½”ë“œ) // ì¢Œìš°ëŠ” ê°€ìˆ˜
+        {
             mySinger = (mySinger - 1 + singers.size()) % singers.size();
-            sings = 0; // °¡¼ö¸¦ º¯°æÇÒ ¶§ ³ë·¡ ÀÎµ¦½º¸¦ ÃÊ±âÈ­
+            sings = 0; // ê°€ìˆ˜ë¥¼ ë³€ê²½í•  ë•Œ ë…¸ë˜ ì¸ë±ìŠ¤ë¥¼ ì´ˆê¸°í™”
+            way = "í˜„ì¬ ì…ë ¥ëœ ë°©í–¥í‚¤ : â†";
+        }
             break;
-        case 77: // ¿À¸¥ÂÊ È­»ìÇ¥ Å°
+        case 77: // ì˜¤ë¥¸ìª½ í™”ì‚´í‘œ í‚¤
+        {
             mySinger = (mySinger + 1) % singers.size();
-            sings = 0; // °¡¼ö¸¦ º¯°æÇÒ ¶§ ³ë·¡ ÀÎµ¦½º¸¦ ÃÊ±âÈ­
+            sings = 0; // ê°€ìˆ˜ë¥¼ ë³€ê²½í•  ë•Œ ë…¸ë˜ ì¸ë±ìŠ¤ë¥¼ ì´ˆê¸°í™”
+            way = "í˜„ì¬ ì…ë ¥ëœ ë°©í–¥í‚¤ : â†’";
+        }
             break;
-        case 72: // À§ÂÊ
+        case 72: // ìœ„ìª½
+        {
             if (!singers[mySinger].songs.empty())
             {
                 sings = (sings - 1 + singers[mySinger].songs.size()) % singers[mySinger].songs.size();
             }
+            way = "í˜„ì¬ ì…ë ¥ëœ ë°©í–¥í‚¤ : â†‘";
+        }
             break;
-        case 80: // ¾Æ·¡ÂÊ
+        case 80: // ì•„ë˜ìª½
+        {
             if (!singers[mySinger].songs.empty())
             {
                 sings = (sings + 1) % singers[mySinger].songs.size();
             }
+            way = "í˜„ì¬ ì…ë ¥ëœ ë°©í–¥í‚¤ : â†“";
+        }
             break;
-        case '+': // + Å°
+        case '+': // + í‚¤
         {
             char choice = 0;
-            cout << "°¡¼ö¸¦ Ãß°¡ÇÏ·Á¸é 's', ³ë·¡¸¦ Ãß°¡ÇÏ·Á¸é 'n'À» ÀÔ·ÂÇÏ¼¼¿ä: " << endl;
-            cout << "°¡¼ö´Â »õ·Î µî·ÏÀÌ µÇ¸ç ³ë·¡¸¦ ¼±ÅÃÇÏ½Ã¸é ÇöÀç ¼±ÅÃµÇ¾îÀÖ´Â °¡¼ö¿¡ ³ë·¡°¡ Ãß°¡µË´Ï´Ù." << endl;
-            cout << "ÀÔ·Â : ";
+            cout << "ê°€ìˆ˜ë¥¼ ì¶”ê°€í•˜ë ¤ë©´ 's', ë…¸ë˜ë¥¼ ì¶”ê°€í•˜ë ¤ë©´ 'n'ì„ ì…ë ¥í•˜ì„¸ìš”: " << endl;
+            cout << "ê°€ìˆ˜ëŠ” ìƒˆë¡œ ë“±ë¡ì´ ë˜ë©° ë…¸ë˜ë¥¼ ì„ íƒí•˜ì‹œë©´ í˜„ì¬ ì„ íƒë˜ì–´ìˆëŠ” ê°€ìˆ˜ì— ë…¸ë˜ê°€ ì¶”ê°€ë©ë‹ˆë‹¤." << endl;
+            cout << "ì…ë ¥ : ";
             cin >> choice;
 
             if (choice == 's') 
             {
                 string newSingerName;
-                cout << "Ãß°¡ÇÒ °¡¼ö ÀÌ¸§: ";
+                cout << "ì¶”ê°€í•  ê°€ìˆ˜ ì´ë¦„: ";
                 cin >> newSingerName;
                 singers.push_back(Singer(newSingerName));
-                cout << "°¡¼ö Ãß°¡µÊ!" << endl;
+                cout << "ê°€ìˆ˜ ì¶”ê°€ë¨!" << endl;
                 Sleep(500);
             }
             else if (choice == 'n')
             {
                 string newSong;
-                cout << "Ãß°¡ÇÒ ³ë·¡ ÀÌ¸§: ";
+                cout << "ì¶”ê°€í•  ë…¸ë˜ ì´ë¦„: ";
                 cin >> newSong;
                 singers[mySinger].songs.push_back(newSong);
-                cout << "³ë·¡ Ãß°¡µÊ!" << endl;
+                cout << "ë…¸ë˜ ì¶”ê°€ë¨!" << endl;
                 Sleep(500);
             }
             else 
             {
-                cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ½ÃµµÇÏ¼¼¿ä." << endl;
+                cout << "ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”." << endl;
             }
         }
         break;
-        case 27: // ESC Å°¸¦ ´©¸£¸é Á¾·á
+        case 27: // ESC í‚¤ë¥¼ ëˆ„ë¥´ë©´ ì¢…ë£Œ
             exit(0);
         default:
             break;
-            //cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ½ÃµµÇÏ¼¼¿ä." << endl;
+            //cout << "ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”." << endl;
         }
     }
 
